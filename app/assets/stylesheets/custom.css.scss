@@ -118,6 +118,19 @@ h1.hl small, h2.hl small, h3.hl small, h4.hl small, h5.hl small, h6.hl small {
 	width: 438px;
 	margin: 0 auto;
 }
+
+.kotel {
+	background: url(/images/kotel1.png);
+	height: 300px;
+	width: 351px;
+	background-size: cover;
+	background-position: center;
+	position: absolute;
+	top: 90px;
+	-webkit-animation-duration: 1s;
+	-moz-animation-delay: 1s;
+}
+
 .iMac {
 	background: url(/images/iMac.png);
 	height: 300px;
