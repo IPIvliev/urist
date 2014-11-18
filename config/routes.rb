@@ -1,5 +1,13 @@
 Urist::Application.routes.draw do
 
+  resources :apeals
+
+
+  get "users/profile"
+
+  devise_for :users
+  resources :users
+
 # Страницы главного меню
   get "/index.html", to: "static_pages#index"
   get "/contact.html", to: "static_pages#contact"

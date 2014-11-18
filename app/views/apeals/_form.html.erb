@@ -1,0 +1,53 @@
+<%= form_for(@apeal) do |f| %>
+  <% if @apeal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@apeal.errors.count, "error") %> prohibited this apeal from being saved:</h2>
+
+      <ul>
+      <% @apeal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :who %><br />
+    <%= f.text_field :who %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :text %><br />
+    <%= f.text_area :text %>
+  </div>
+  <div class="field">
+    <%= f.label :term %><br />
+    <%= f.text_field :term %>
+  </div>
+  <div class="field">
+    <%= f.label :street %><br />
+    <%= f.text_field :street %>
+  </div>
+  <div class="field">
+    <%= f.label :house %><br />
+    <%= f.text_field :house %>
+  </div>
+  <div class="field">
+    <%= f.label :korpus %><br />
+    <%= f.text_field :korpus %>
+  </div>
+  <div class="field">
+    <%= f.label :how %><br />
+    <%= f.text_field :how %>
+  </div>
+  <div class="field">
+    <%= f.label :finish %><br />
+    <%= f.check_box :finish %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

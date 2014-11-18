@@ -45,6 +45,29 @@
               </ul>
             </li>
             <li class="<%=is_active('contact')%>"><a href="/contact.html">Контакты</a></li>
+
+          <% if current_user %>
+            <li style="padding-left: 120px;" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="account">
+                  <div class="avatar">
+                    <% if current_user.avatar? %>
+                      <%= image_tag current_user.avatar_url, :width => 100 %>
+                    <% else %>
+                      <%= image_tag "/images/no-avatar.png" %>
+                    <% end %>
+                  </div>
+                  <p><b><%= current_user.name %></b><br /><%= current_user.email %></p>
+                  <p><a href="/users/profile">Аккаунт</a> | <%= link_to "Выйти", "/users/sign_out" %></p>
+                  <div class="clearfix"></div>
+                </li>
+              </ul>
+            </li>
+          <% else %>
+            <li style="text-align: right; padding-left: 120px;"><a href="/users/sign_in">Войти</a></li>
+          <% end %>
+
       <!-- Profile links for extra small screens -->
           </ul>
       <!-- Search form for extra small screens -->

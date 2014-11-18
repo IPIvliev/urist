@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  who: MyString
+  phone: MyString
+  text: MyText
+  term: MyString
+  street: MyString
+  house: MyString
+  korpus: MyString
+  how: MyString
+  finish: false
+
+two:
+  who: MyString
+  phone: MyString
+  text: MyText
+  term: MyString
+  street: MyString
+  house: MyString
+  korpus: MyString
+  how: MyString
+  finish: false

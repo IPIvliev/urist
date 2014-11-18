@@ -1,0 +1,2 @@
+module ApealsHelper
+end
