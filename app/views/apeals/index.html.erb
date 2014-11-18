@@ -11,46 +11,11 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
+        <%= render "/users/profile_menu" %>
+        <div class="col-sm-8 col-md-9">
           <h1 class="hl text-center top-zero">ООО "Нижновтеплоэнерго"</h1>
 
-<%= grid(@apeals) do |g|
-
-  g.blank_slate  do
-    content_tag :div, "  <strong>Пока не было размещено ни одной жалобы</strong>".html_safe, class: 'alert alert-warning'
-  end
-
-  g.column name: 'Номер' do |apeal|
-    link_to apeal.id, apeal
-  end
-
-  g.column  name: 'Дата создания' do |apeal|
-    Russian::strftime(apeal.created_at, "%d %B %Y")
-  end
-
-  g.column  name: 'Суть жалобы' do |apeal|
-    truncate( raw( sanitize(apeal.term, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 200, :omission => "...")
-  end
-
-  g.column  name: 'Кто <br>обратился'.html_safe do |apeal|
-    "#{apeal.who} (#{apeal.phone})"
-  end
-
-  g.column  name: 'Предпринятые шаги' do |apeal|
-    truncate( raw( sanitize(apeal.result, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 200, :omission => "...")
-  end  
-
-  g.column name: 'Решено' do |apeal|
-    link_to('Изменить', edit_apeal_path(apeal))
-  end
-
-  g.column name: 'Изменить' do |apeal|
-    link_to('Изменить', edit_apeal_path(apeal))
-  end
-
-end -%>
-
-<table>
+<table border="1">
   <tr>
     <th>Who</th>
     <th>Phone</th>

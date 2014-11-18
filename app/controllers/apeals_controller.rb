@@ -2,13 +2,10 @@ class ApealsController < ApplicationController
   # GET /apeals
   # GET /apeals.json
   def index
-    @apeals = initialize_grid(Apeal,
-                  order: 'created_at',
-                  per_page: 20)
+    @apeals = Apeal.all
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @apeals }
+      format.html #
     end
   end
 
