@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
-            <p>Please sign in before you proceed. If you are not a member, <a href="sign-up.html">create an account</a>.</p>
+            <p>Введите свой логин и пароль дря входа на сайт. Если у вас нет аккаунта, <a href="/users/sign_up">зарегистрируйтесь</a>.</p>
           </div>
         </div>
       </div>
@@ -15,9 +15,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-sm-6">
-          <h3 class="hl top-zero">Sign in to Mysite.com</h3>
+          <h3 class="hl top-zero">Войдите на сайт</h3>
           <hr>
-          <p>Our site supports several methods to verify your identity. Sign in to get instant access to all of our features.</p>
+          <p>Наш сайт поддерживает несколько методов регистрации.</p>
           <!-- Social icons -->
           <div class="login-social">
             <ul>
@@ -47,21 +47,21 @@
               <div class="checkbox">
                 <label>
                     <% if devise_mapping.rememberable? -%>
-    					<div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+    					<div><%= f.check_box :remember_me %> <%= f.label "Запомнить меня" %></div>
   					<% end -%>
                 </label>
               </div>
-              <%= f.submit "Sign in", :class => "btn btn-green" %>
+              <%= f.submit "Зайти", :class => "btn btn-green" %>
             <% end %>
             <hr>
             <p>Не зарегистрированы? <a href="/users/sign_up">Создать аккаунт.</a></p>
             <div class="pwd-lost">
-              <div class="pwd-lost-q show">Lost your password? <a href="#">Click here to recover.</a></div>
+              <div class="pwd-lost-q show">Забыли пароль? <a href="#">Нажмите для восстановления.</a></div>
               <div class="pwd-lost-f hidden">
-                <p class="text-muted">Enter your email address and we will send you a link to reset your password.</p>
+                <p class="text-muted">Введите свой email и мы отправим Вам ссылку для восстановления пароля.</p>
                 <form class="form-inline" role="form">
                   <div class="form-group">
-                    <label class="sr-only" for="email-pwd">Email address</label>
+                    <label class="sr-only" for="email-pwd">Email</label>
                     <input type="email" class="form-control" id="email-pwd" placeholder="Enter email">
                   </div>
                   

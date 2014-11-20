@@ -23,7 +23,7 @@
   end
 
   g.column name: 'Наименование' do |page|
-    page.name
+    link_to page.name, page.file_url
   end
 
   g.column  name: 'Дата размещения' do |page|

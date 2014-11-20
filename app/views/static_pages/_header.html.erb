@@ -25,27 +25,27 @@
               <a href="/services.html" class="dropdown-toggle" data-toggle="dropdown">Потребителям <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="/prices.html">Цены и тарифы</a></li>
-                <li><a href="ui-elements.html#panels">Информация о задолженности</a></li>
+                <li><a href="#">Информация о задолженности</a></li>
               </ul>
             </li>
 
           
             <li class="dropdown">
-              <a href="/services.html" class="dropdown-toggle" data-toggle="dropdown">Раскрытие информации <b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Раскрытие информации <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="ui-elements.html#buttons">Теплоснабжение</a></li>
-                <li><a href="ui-elements.html#panels">Горячее водоснабжение</a></li>
-                <li><a href="ui-elements.html#panels">Бланки договоров и контрактов</a></li>
+                <li><a href="/teplo.html">Теплоснабжение</a></li>
+                <li><a href="/gvs.html">Горячее водоснабжение</a></li>
+                <li><a href="/blanks.html">Бланки договоров и контрактов</a></li>
               </ul>
             </li>
             <li class="dropdown">
               <a href="/services.html" class="dropdown-toggle" data-toggle="dropdown">Закупки <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="ui-elements.html#buttons">Положение о закупках</a></li>
-                <li><a href="ui-elements.html#panels">План закупок</a></li>
-                <li><a href="ui-elements.html#panels">Текущие закупки</a></li>
-                <li><a href="ui-elements.html#panels">Архив закупок</a></li>
-                <li><a href="ui-elements.html#panels">Заключённые договоры</a></li>
+                <li><a href="/polozhenie.html">Положение о закупках</a></li>
+                <li><a href="/plan.html">План закупок</a></li>
+                <li><a href="/today.html">Текущие закупки</a></li>
+                <li><a href="/arhive.htl">Архив закупок</a></li>
+                <li><a href="/dogovora.html">Заключённые договоры</a></li>
               </ul>
             </li>
             <li class="<%=is_active('contact')%>"><a href="/contact.html">Контакты</a></li>
@@ -59,7 +59,7 @@
                     <% if current_user.avatar? %>
                       <%= image_tag current_user.avatar_url, :width => 100 %>
                     <% else %>
-                      <%= image_tag "/images/no-avatar.png" %>
+                      <%= image_tag "/images/no-avatar.png", :width => 100 %>
                     <% end %>
                   </div>
                   <p><b><%= current_user.name %></b><br /><%= current_user.email %></p>

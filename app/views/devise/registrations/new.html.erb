@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
-            <p>Fill out the form below to sign up.</p>
+            <p>Заполните форму для регистации на сайте.</p>
           </div>
         </div>
       </div>
@@ -16,7 +16,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-3 signup">
-          <h3 class="hl top-zero">Registration</h3>
+          <h3 class="hl top-zero">Регистрация</h3>
           <hr>
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <div class="form-group">
@@ -41,12 +41,7 @@
                 </div>
               </div>
             </div>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox"> I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
-              </label>
-            </div>
-            <%= f.submit "Sign up", :class => "btn btn-green" %>
+            <%= f.submit "Зарегистрироваться", :class => "btn btn-green" %>
           <% end %>
         </div>
       </div>

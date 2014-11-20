@@ -3,15 +3,15 @@
         <div class="col-sm-4 col-md-3">
 <h4>Цены и тарифы</h4>
             <ul class="nav nav-pills nav-stacked">
-              <li role="presentation" class="active">
-                <a href="/users/profile" class="active">
+              <li role="presentation" class="<%= is_active('prices') %>">
+                <a href="/prices.html" class="active">
                   Цены и тарифы <i class="fa fa-chevron-right pull-right"></i>
                 </a>  
               </li>
 
-              <li role="presentation">
-                <a href="/users/sign_out">
-                  Информация о задолженности
+              <li role="presentation" class="<%= is_active('catalogue') %>">
+                <a href="#">
+                  Информация о задолженности <i class="fa fa-chevron-right pull-right"></i>
                 </a>  
               </li>
             </ul>
@@ -21,20 +21,20 @@
 <h4>Раскрытие информации</h4>
 
             <ul class="nav nav-pills nav-stacked">
-              <li>
-                <a href="/apeals/new">
-                  Теплоснабжение
+              <li role="presentation" class="<%= is_active('teplo') %>">
+                <a href="/teplo.html">
+                  Теплоснабжение <i class="fa fa-chevron-right pull-right"></i>
                 </a>
               </li>
-              <li>
-                <a href="/apeals/new">
-                  Горячее водоснабжение
+              <li role="presentation" class="<%= is_active('gvs') %>">
+                <a href="/gvs.html">
+                  Горячее водоснабжение <i class="fa fa-chevron-right pull-right"></i>
                 </a>
               </li>
               
-              <li>
-                <a href="/apeals/new">
-                  Бланки договоров и контрактов
+              <li class="<%= is_active('blank') %>">
+                <a href="/blanks.html">
+                  Бланки договоров и контрактов <i class="fa fa-chevron-right pull-right"></i>
                 </a>  
               </li>
             </ul>
@@ -47,32 +47,32 @@
 <h4>Закупки</h4>
 
             <ul class="nav nav-pills nav-stacked">
-              <li>
-                <a href="/apeals/new">
-                  Положение о закупках
+              <li class="<%= is_active('polozhenie') %>">
+                <a href="/polozhenie.html">
+                  Положение о закупках <i class="fa fa-chevron-right pull-right"></i>
                 </a>
               </li>
-              <li>
-                <a href="/apeals/new">
-                  План закупок
+              <li class="<%= is_active('plan') %>">
+                <a href="/plan.html">
+                  План закупок <i class="fa fa-chevron-right pull-right"></i>
                 </a>
               </li>
               
-              <li>
-                <a href="/apeals/new">
-                  Текущие закупки
+              <li class="<%= is_active('today') %>">
+                <a href="/today.html">
+                  Текущие закупки <i class="fa fa-chevron-right pull-right"></i>
                 </a>  
               </li>
 
-              <li>
-                <a href="/apeals/new">
-                  Архив закупок 
+              <li class="<%= is_active('arhive') %>">
+                <a href="/arhive.html">
+                  Архив закупок <i class="fa fa-chevron-right pull-right"></i>
                 </a>  
               </li>
 
-              <li>
-                <a href="/apeals/new">
-                  Заключенные договоры
+              <li class="<%= is_active('dogovora') %>">
+                <a href="/dogovora.html">
+                  Заключенные договоры <i class="fa fa-chevron-right pull-right"></i>
                 </a>  
               </li>
             </ul>

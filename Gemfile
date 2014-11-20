@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'kaminari'
+gem "eventmachine"
 gem "wice_grid", '3.4.2'
 
 # Bundle edge Rails instead:
@@ -12,6 +13,7 @@ gem 'sqlite3'
 # Общее
 gem 'russian'
 gem 'thin'
+gem "the_string_to_slug", "~> 1.2"
 
 # Users
 gem 'devise'
