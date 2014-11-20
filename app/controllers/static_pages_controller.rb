@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
   end
 
   def contact
+    @apeal = Apeal.new
   end
 
   def services

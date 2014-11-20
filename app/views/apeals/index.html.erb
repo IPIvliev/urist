@@ -15,41 +15,40 @@
         <div class="col-sm-8 col-md-9">
           <h1 class="hl text-center top-zero">ООО "Нижновтеплоэнерго"</h1>
 
-<table border="1">
-  <tr>
-    <th>Who</th>
-    <th>Phone</th>
-    <th>Text</th>
-    <th>Term</th>
-    <th>Street</th>
-    <th>House</th>
-    <th>Korpus</th>
-    <th>How</th>
-    <th>Finish</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @apeals.each do |apeal| %>
-  <tr>
-    <td><%= apeal.who %></td>
-    <td><%= apeal.phone %></td>
-    <td><%= apeal.text %></td>
-    <td><%= apeal.term %></td>
-    <td><%= apeal.street %></td>
-    <td><%= apeal.house %></td>
-    <td><%= apeal.korpus %></td>
-    <td><%= apeal.how %></td>
-    <td><%= apeal.finish %></td>
-    <td><%= link_to 'Show', apeal %></td>
-    <td><%= link_to 'Edit', edit_apeal_path(apeal) %></td>
-    <td><%= link_to 'Destroy', apeal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-        </div>
-      </div>
+<%= grid(@apeals) do |g|
+
+  g.blank_slate  do
+    content_tag :div, "  <strong>Нет ни одной открытой жалобы.</strong>".html_safe, class: 'alert alert-warning'
+  end
+
+  g.column name: 'Номер' do |apeal|
+    link_to apeal.id, apeal
+  end
+
+  g.column  name: 'Дата размещения' do |apeal|
+    Russian::strftime(apeal.created_at, "%d %B %Y")
+  end
+
+  g.column  name: 'Краткое содержание' do |apeal|
+    truncate( raw( sanitize(apeal.term, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 150, :omission => "...")
+  end
+
+  g.column  name: 'ФИО <br>(телефон)'.html_safe do |apeal|
+    "#{apeal.who}<br>#{apeal.phone}".html_safe
+  end
+
+  g.column  name: 'Подробности'.html_safe do |apeal|
+    link_to "Подробнее", apeal
+  end  
+
+  g.column  name: 'Изменить'.html_safe do |apeal|
+    link_to('Изменить', edit_apeal_path(apeal))
+  end  
+
+end -%>
+
+
       <div class="row">
         <div class="col-md-12">
           <div class="about-btn">
@@ -57,6 +56,12 @@
           </div>
         </div>
       </div>
+
+
+
+        </div>
+      </div>
+
 
 
     </div>

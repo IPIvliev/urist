@@ -11,43 +11,65 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :who %><br />
-    <%= f.text_field :who %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :text %><br />
-    <%= f.text_area :text %>
-  </div>
-  <div class="field">
-    <%= f.label :term %><br />
-    <%= f.text_field :term %>
-  </div>
-  <div class="field">
-    <%= f.label :street %><br />
-    <%= f.text_field :street %>
-  </div>
-  <div class="field">
-    <%= f.label :house %><br />
-    <%= f.text_field :house %>
-  </div>
-  <div class="field">
-    <%= f.label :korpus %><br />
-    <%= f.text_field :korpus %>
-  </div>
-  <div class="field">
-    <%= f.label :how %><br />
-    <%= f.text_field :how %>
-  </div>
-  <div class="field">
-    <%= f.label :finish %><br />
-    <%= f.check_box :finish %>
-  </div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.label "ФИО (кто жалуется)" %><br />
+            <%= f.text_field :who, :class => "form-control" %>
+          </div>
+          <div class="col-md-6">
+            <%= f.label "Номер телефона (кто жалуется)" %><br />
+            <%= f.text_field :phone, :class => "form-control", :id => "phone" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <%= f.label "Улица" %><br />
+            <%= f.text_field :street, :class => "form-control" %>
+          </div>
+          <div class="col-md-4">
+            <%= f.label "Номер дома" %><br />
+            <%= f.text_field :house, :class => "form-control" %>
+          </div>
+          <div class="col-md-4">
+            <%= f.label "Корпус" %><br />
+            <%= f.text_field :korpus, :class => "form-control" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <%= f.label "Краткое сожержание" %><br />
+            <%= f.text_field :term, :size => 122, :required => "required", :class => "form-control" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <%= f.label "Примечание" %><br />
+            <%= f.text_area :text, :cols => 120, :rows => 7, :class => "form-control" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <%= f.label "Предпринятые шаги для устранения жалобы" %><br />
+            <%= f.text_area :text, :rows => 11, :cols => 120, :class => "form-control" %>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-12">
+            <label>Жалоба закрыта?
+            <%= f.check_box :finish, :class => "form-control" %>
+            </label>
+          </div>
+        </div>
+        <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Сохранить", :class => "btn btn-lg btn-red"  %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+    jQuery(function($){
+       $("#phone").mask("+7 (999) 999-99-99");
+    });
+</script>
+<script src="/js/jquery.maskedinput.js" type="text/javascript"></script>

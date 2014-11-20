@@ -1,0 +1,43 @@
+  <div class="wrapper">
+    <div class="section-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <!-- Remove the .animated class if you don't want things to move -->
+            <h1 class="animated slideInLeft"><span>О компании</span></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <%= render "/admin/user_menu" %>
+        <div class="col-sm-8 col-md-9">
+          <h1 class="hl text-center top-zero"><%= @title %></h1>
+
+
+<%= grid(@pages) do |g|
+
+  g.blank_slate  do
+    content_tag :div, "  <strong>В данном разделе пока не размещён ни один документ.</strong>".html_safe, class: 'alert alert-warning'
+  end
+
+  g.column name: 'Наименование' do |page|
+    page.name
+  end
+
+  g.column  name: 'Дата размещения' do |page|
+    Russian::strftime(page.created_at, "%d %B %Y")
+  end
+
+
+end -%>
+
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+<br />

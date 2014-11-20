@@ -1,13 +1,29 @@
+# encoding: utf-8
+
 class ApealsController < ApplicationController
   # GET /apeals
   # GET /apeals.json
   def index
-    @apeals = Apeal.all
+    @apeals = initialize_grid(Apeal, :conditions => ['finish = ?', false],
+                  order: 'created_at',
+                  order_direction: 'desc',
+                  per_page: 10)
 
     respond_to do |format|
       format.html #
     end
   end
+
+  def old_apeals
+    @apeals = initialize_grid(Apeal, :conditions => ['finish = ?', true],
+                  order: 'created_at',
+                  order_direction: 'desc',
+                  per_page: 10)
+
+    respond_to do |format|
+      format.html #
+    end
+  end  
 
   # GET /apeals/1
   # GET /apeals/1.json
@@ -41,15 +57,17 @@ class ApealsController < ApplicationController
   def create
     @apeal = Apeal.new(params[:apeal])
 
-    respond_to do |format|
       if @apeal.save
-        format.html { redirect_to @apeal, notice: 'Apeal was successfully created.' }
-        format.json { render json: @apeal, status: :created, location: @apeal }
+        if current_user
+          redirect_to @apeal
+        else
+          flash[:success] = "<strong>Ваша жалоба отправлена успешно</strong>. Специалит свяжется с Вами по указанному номеру телефона в ближайшее время.".html_safe
+          redirect_to "/contact.html"
+        end
       else
         format.html { render action: "new" }
         format.json { render json: @apeal.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   # PUT /apeals/1

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'kaminari'
+gem "wice_grid", '3.4.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -15,6 +16,9 @@ gem 'thin'
 # Users
 gem 'devise'
 
+# Admin panel
+gem 'rails_admin'
+
 # Images
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
@@ -23,7 +27,7 @@ gem 'rmagick', :require => 'RMagick'
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'coffee-rails', '~> 3.2.2'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platform => :ruby

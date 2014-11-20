@@ -1,0 +1,32 @@
+<% if current_user.role == "apeals_manager" || current_user.role == "director" || current_user.role == "admin" %>
+
+        <!-- Stats and Galery -->
+        <div class="col-sm-8 col-sm-offset-4 col-md-3 col-md-offset-0">
+          <div class="block-inverse">
+            <div class="head-inverse">
+              <div class="text-center">
+                <strong class="text-muted">Количество открытых жалоб</strong>
+                <h1 class="text-center text-green"><%= link_to Apeal.where(:finish => false).count, apeals_path %></h1>
+              </div>
+            </div>
+          <!--
+            <div class="body-inverse">
+              <p class="text-center">
+                <strong class="text-muted">My Gallery</strong>
+              </p>
+              <div class="user-gallery text-center">
+                <a href="#"><img src="img/works1.jpg" alt="..."></a>
+                <a href="#"><img src="img/works2.jpg" alt="..."></a>
+                <a href="#"><img src="img/works3.jpg" alt="..."></a>
+                <a href="#"><img src="img/works4.jpg" alt="..."></a>
+                <a href="#"><img src="img/works1.jpg" alt="..."></a>
+                <a href="#"><img src="img/works2.jpg" alt="..."></a>
+                <a href="#"><img src="img/works3.jpg" alt="..."></a>
+                <a href="#"><img src="img/works4.jpg" alt="..."></a>
+                <a href="#"><img src="img/dots.jpg" alt="..."></a>
+              </div>
+            </div>
+          -->
+          </div>
+        </div>
+<% end %>

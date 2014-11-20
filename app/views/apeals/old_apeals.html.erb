@@ -1,0 +1,65 @@
+  <div class="wrapper">
+    <div class="section-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <!-- Remove the .animated class if you don't want things to move -->
+            <h1 class="animated slideInLeft"><span>О компании</span></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <%= render "/users/profile_menu" %>
+        <div class="col-sm-8 col-md-9">
+          <h1 class="hl text-center top-zero">ООО "Нижновтеплоэнерго"</h1>
+
+
+<%= grid(@apeals) do |g|
+
+  g.blank_slate  do
+    content_tag :div, "  <strong>Нет ни одной закрытой жалобы.</strong>".html_safe, class: 'alert alert-warning'
+  end
+
+  g.column name: 'Номер' do |apeal|
+    link_to apeal.id, apeal
+  end
+
+  g.column  name: 'Дата размещения' do |apeal|
+    Russian::strftime(apeal.created_at, "%d %B %Y")
+  end
+
+  g.column  name: 'Краткое содержание' do |apeal|
+    truncate( raw( sanitize(apeal.term, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 150, :omission => "...")
+  end
+
+  g.column  name: 'ФИО <br>(телефон)'.html_safe do |apeal|
+    "#{apeal.who}<br>(#{apeal.phone})".html_safe
+  end
+
+  g.column  name: 'Подробности'.html_safe do |apeal|
+    link_to "Подробнее", apeal
+  end  
+
+  g.column  name: 'Изменить'.html_safe do |apeal|
+    link_to('Изменить', edit_apeal_path(apeal))
+  end  
+
+end -%>
+
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="about-btn">
+            <%= link_to 'Добавить жалобу', new_apeal_path, :class => "btn btn-default" %>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<br />
