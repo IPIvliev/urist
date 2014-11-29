@@ -6,7 +6,7 @@ class AdminController < ApplicationController
 		@title = "Цены и тарифы"
 
 		@pages = initialize_grid(Page, :conditions => ['category_id = ?', 1],
-                  order: 'created_at',
+                  order: 'name',
                   order_direction: 'desc',
                   per_page: 20)
 
@@ -17,7 +17,7 @@ class AdminController < ApplicationController
 		@title = "Регулируемая деятельность в сфере теплоснабжения"
 
 		@pages = initialize_grid(Page, :conditions => ['category_id = ?', 2],
-                  order: 'created_at',
+                  order: 'name',
                   order_direction: 'desc',
                   per_page: 20)
 
@@ -27,8 +27,8 @@ class AdminController < ApplicationController
 	def gvs
 		@title = "Регулируемая деятельность в сфере горячего водоснабжения"
 
-		@pages = initialize_grid(Page, :conditions => ['category_id = ?', 1],
-                  order: 'created_at',
+		@pages = initialize_grid(Page, :conditions => ['category_id = ?', 3],
+                  order: 'name',
                   order_direction: 'desc',
                   per_page: 20)
 
@@ -38,7 +38,7 @@ class AdminController < ApplicationController
 	def blanks
 		@title = "Бланки договоров и контрактов"
 
-		@pages = initialize_grid(Page, :conditions => ['category_id = ?', 2],
+		@pages = initialize_grid(Page, :conditions => ['category_id = ?', 4],
                   order: 'created_at',
                   order_direction: 'desc',
                   per_page: 20)
@@ -73,6 +73,17 @@ class AdminController < ApplicationController
 
 		@pages = initialize_grid(Page, :conditions => ['category_id = ?', 1],
                   order: 'created_at',
+                  order_direction: 'desc',
+                  per_page: 20)
+
+		render :template => "/admin/pages"
+	end
+
+	def podklucheniya
+		@title = "Возможности подключения"
+
+		@pages = initialize_grid(Page, :conditions => ['category_id = ?', 5],
+                  order: 'name',
                   order_direction: 'desc',
                   per_page: 20)
 

@@ -8,6 +8,7 @@ Urist::Application.routes.draw do
 
 # Динамические страницы
   match '/prices.html', to: 'admin#prices'
+  match '/podklucheniya.html', to: 'admin#podklucheniya'
   match '/teplo.html', to: 'admin#teplo'
   match '/gvs.html', to: 'admin#gvs'
   match '/blanks.html', to: 'admin#blanks'

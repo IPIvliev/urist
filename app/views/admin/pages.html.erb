@@ -23,7 +23,7 @@
   end
 
   g.column name: 'Наименование' do |page|
-    link_to page.name, page.file_url
+    link_to page.name, page.file_url, :target => "_blank"
   end
 
   g.column  name: 'Дата размещения' do |page|
