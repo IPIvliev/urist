@@ -49,7 +49,7 @@ class AdminController < ApplicationController
 	def polozhenie
 		@title = "Положение о закупках"
 
-		@pages = initialize_grid(Page, :conditions => ['category_id = ?', 1],
+		@pages = initialize_grid(Page, :conditions => ['category_id = ?', 6],
                   order: 'created_at',
                   order_direction: 'desc',
                   per_page: 20)
