@@ -91,34 +91,18 @@
 		</div>
 		<div class="tab-content">
 		  <div class="tab-pane active" id="blog">
-			<div class="media">
-			  <a class="pull-left" href="#">
-				<img class="media-object" src="/images/blog-1.jpg" alt="Blog Message">
-			  </a>
-			  <div class="media-body">
-				<h4 class="media-heading"><a href="#">Заголовок новости</a></h4>
-				Здесь находятся первые 300 символов из текста новости. Новости и полный текст расположен в разделе "Блог" этого сайта...
-			  </div>
-			</div>
-			<div class="media">
-			  <a class="pull-left" href="#">
-				<img class="media-object" src="/images/blog-2.jpg" alt="Blog Message">
-			  </a>
-			  <div class="media-body">
-				<h4 class="media-heading"><a href="#">Заголовок новости</a></h4>
-				Здесь находятся первые 300 символов из текста новости. Новости и полный текст расположен в разделе "Блог" этого сайта...
-			  </div>
-			</div>
-			<div class="media">
-			  <a class="pull-left" href="#">
-				<img class="media-object" src="/images/blog-3.jpg" alt="Blog Message">
-			  </a>
-			  <div class="media-body">
-				<h4 class="media-heading"><a href="#">Заголовок новости</a></h4>
-				Здесь находятся первые 300 символов из текста новости. Новости и полный текст расположен в разделе "Блог" этого сайта...
-			  </div>
-			</div>
-			<a href="#" class="read-more">Читать все новости...</a>
+		  	<% Article.order("created_at DESC").limit(3).each do |article| %>
+				<div class="media">
+				  <a class="pull-left" href="<%= "/articles/#{article.id}" %>">
+					<%= image_tag atricle.image.url, :class => "media-object", :alt => article.name %>
+				  </a>
+				  <div class="media-body">
+					<h4 class="media-heading"><%= link_to article.name, article %></h4>
+					<%= truncate( raw( sanitize(article.text, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 200, :omission => "...") %>
+				  </div>
+				</div>
+			<% end %>
+			<%= link_to "Читать все новости...", articles_path, :class => "read-more" %>
 		  </div>
 		</div>
 		</div>
