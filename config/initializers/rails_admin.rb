@@ -27,6 +27,42 @@ RailsAdmin.config do |config|
   # config.audit_with :history, User
 
   # Edit Post model
+    config.model Article do
+
+      label_plural "Новости"
+      weight 1
+
+      list do
+        field :image do
+          label "Изображение"
+        end
+        field :name do
+          label "Название"
+        end
+        field :text do
+          label "Текст"
+        end
+        field :created_at do
+          label "Дата создания"
+        end
+      end
+
+      edit do
+        include_all_fields
+        field :name do
+          label "Название"
+        end
+        field :text do
+          label "Текст"
+        end
+
+        field :image, :carrierwave
+
+        exclude_fields :created_at, :updated_at, :user_id
+      end
+    end
+
+  # Edit Post model
     config.model Page do
 
       label_plural "Страницы сайта"

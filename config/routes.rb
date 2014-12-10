@@ -1,5 +1,8 @@
 Urist::Application.routes.draw do
 
+  resources :articles
+
+
   mount RailsAdmin::Engine => '/kro', :as => 'rails_admin'
 
 # Жалобы
@@ -27,7 +30,7 @@ Urist::Application.routes.draw do
   get "/index.html", to: "static_pages#index"
   get "/contact.html", to: "static_pages#contact"
   get "/services.html", to: "static_pages#services"
-  get "/blog.html", to: "static_pages#blog"
+  get "/blog.html", to: "articles#index"
   get "/about.html", to: "static_pages#about"
   get "/prices.html", to: "static_pages#prices"
 
