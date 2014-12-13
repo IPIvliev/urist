@@ -39,6 +39,22 @@
           </div>
 <% end %>
 
+
+
+<% if current_user.role == "apeals_manager" || current_user.role == "admin" || current_user.role == "director" %>
+<br>
+<h4>Приборы учёта</h4>
+
+          <div class="user-menu bottom-15">
+            <ul>
+              <li>
+                <%= link_to "<i class='sign fa fa-file bg-blue'></i> Жилые дома <i class='fa fa-chevron-right pull-right'></i>".html_safe, equip_houses_path, :class => "active" %>
+              </li>
+            </ul>
+          </div>
+<% end %>
+
+
         </div>
 
 

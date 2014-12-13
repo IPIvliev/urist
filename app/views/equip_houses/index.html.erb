@@ -1,0 +1,74 @@
+  <div class="wrapper">
+    <div class="section-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <!-- Remove the .animated class if you don't want things to move -->
+            <h1 class="animated slideInLeft"><span>Показания ПУ домов</span></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <%= render "/users/profile_menu" %>
+        <div class="col-sm-8 col-md-9">
+          <h1 class="hl text-center top-zero">Приборы учёта домов</h1>
+
+<%= grid(@equip_houses) do |g|
+
+  g.blank_slate  do
+    content_tag :div, "  <strong>Нет ни одного приборы учёта.</strong>".html_safe, class: 'alert alert-warning'
+  end
+
+  g.column name: 'Адрес', attribute: 'street' do |equip_house|
+    "#{equip_house.street}, д. #{equip_house.housenumber}"
+  end
+
+  g.column name: 'ЦТП', attribute: 'ctp' do |equip_house|
+    equip_house.ctp
+  end
+
+  g.column name: 'Отопление (t)', attribute: 't1', model: 'EquipValue' do |equip_house|
+    equip_house.equip_values.last.t1 if equip_house.equip_values.last.present?
+  end
+
+  g.column name: 'ГКал' do |equip_house|
+    (equip_house.equip_values.last.w1 - equip_house.equip_values.last.w2).round(3) if equip_house.equip_values.last.present?
+  end
+
+  g.column name: 'ГВС (t)', attribute: 't3', model: 'EquipValue' do |equip_house|
+    temperature(equip_house.equip_values.last.t3) if equip_house.equip_values.last.present?
+  end
+
+
+
+  g.column  name: 'Подробности'.html_safe do |equip_house|
+    link_to "Подробнее", equip_house
+  end  
+
+  g.column  name: 'Изменить'.html_safe do |equip_house|
+    link_to('Изменить', edit_equip_house_path(equip_house))
+  end  
+
+end -%>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="about-btn">
+            <%= link_to 'Добавить прибор', new_equip_house_path, :class => "btn btn-default" %>
+          </div>
+        </div>
+
+      </div>
+
+
+
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+<br />

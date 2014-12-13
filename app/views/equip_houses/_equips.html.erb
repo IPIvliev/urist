@@ -1,0 +1,37 @@
+<%= grid(@equip_houses) do |g|
+
+  g.blank_slate  do
+    content_tag :div, "  <strong>Нет ни одного приборы учёта.</strong>".html_safe, class: 'alert alert-warning'
+  end
+
+  g.column name: 'Адрес', attribute: 'street' do |equip_house|
+    "#{equip_house.street}, д. #{equip_house.housenumber}"
+  end
+
+  g.column name: 'ЦТП', attribute: 'ctp' do |equip_house|
+    equip_house.ctp
+  end
+
+  g.column name: 'Отопление (t)', attribute: 't1', model: 'EquipValue' do |equip_house|
+    equip_house.equip_values.last.t1 if equip_house.equip_values.last.present?
+  end
+
+  g.column name: 'ГКал' do |equip_house|
+    (equip_house.equip_values.last.w1 - equip_house.equip_values.last.w2).round(3) if equip_house.equip_values.last.present?
+  end
+
+  g.column name: 'ГВС (t)', attribute: 't3', model: 'EquipValue' do |equip_house|
+    temperature(equip_house.equip_values.last.t3) if equip_house.equip_values.last.present?
+  end
+
+
+
+  g.column  name: 'Подробности'.html_safe, in_csv: false do |equip_house|
+    link_to "Подробнее", equip_house
+  end  
+
+  g.column  name: 'Изменить'.html_safe, in_csv: false do |equip_house|
+    link_to('Изменить', edit_equip_house_path(equip_house))
+  end  
+
+end -%>

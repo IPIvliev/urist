@@ -1,5 +1,12 @@
 Urist::Application.routes.draw do
 
+  resources :equip_houses
+
+
+  get "counters/index"
+
+  get "counters/show"
+
   resources :articles
 
 

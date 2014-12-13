@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  t1: 9.99
+  t2: 9.99
+  t3: 9.99
+  t4: 9.99
+  w1: 9.99
+  w2: 9.99
+  w3: 9.99
+  w4: 9.99
+  m1: 9.99
+  m2: 9.99
+  m3: 9.99
+  m4: 9.99
+  date: 2014-12-12 16:46:00
+
+two:
+  t1: 9.99
+  t2: 9.99
+  t3: 9.99
+  t4: 9.99
+  w1: 9.99
+  w2: 9.99
+  w3: 9.99
+  w4: 9.99
+  m1: 9.99
+  m2: 9.99
+  m3: 9.99
+  m4: 9.99
+  date: 2014-12-12 16:46:00

@@ -94,7 +94,7 @@
 		  	<% Article.order("created_at DESC").limit(3).each do |article| %>
 				<div class="media">
 				  <a class="pull-left" href="<%= "/articles/#{article.id}" %>">
-					<%= image_tag atricle.image.url, :class => "media-object", :alt => article.name %>
+					<%= image_tag article.image.url, :class => "media-object", :alt => article.name %>
 				  </a>
 				  <div class="media-body">
 					<h4 class="media-heading"><%= link_to article.name, article %></h4>
@@ -102,7 +102,7 @@
 				  </div>
 				</div>
 			<% end %>
-			<%= link_to "Читать все новости...", articles_path, :class => "read-more" %>
+			<%= link_to "Читать все новости...", "/blog.html", :class => "read-more" %>
 		  </div>
 		</div>
 		</div>
