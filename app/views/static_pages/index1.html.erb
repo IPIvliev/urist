@@ -1,0 +1,190 @@
+  <div class="wrapper">	
+  <!-- Showcase
+	================ -->
+    <div id="wrap">
+	  <div class="container">
+		<div class="row">
+		  <div class="col-md-9 col-sm-12">
+		    <h1 class="animated slideInDown">ООО "Нижновтеплоэнерго"</h1>
+		    <div class="list">
+			  <ul>
+			    <li class="animated slideInLeft first"><span class="li-bg"><i class="fa fa fa-code"></i> <span>Мы даём людям тепло!</span></span></li>
+
+			  </ul>
+			</div>
+		  </div>
+		  <div class="col-md-3 hidden-sm hidden-xs">
+		    <div class="showcase">
+		    	
+			  <div class="kotel animated fadeInDown"></div>
+			    <!--
+			  <div class="iPad animated fadeInLeft"></div>
+			  <div class="iPhone animated fadeInRight"></div>
+			 	-->
+			</div>
+		  </div>
+		</div>
+	  </div>
+    </div>
+	<div class="container">
+	  <!-- Services
+		================ -->
+	  <div class="row">
+	    <div class="col-md-12">
+		  <div class="services">
+			<ul>
+				<li>
+				  <i class="fa fa-briefcase fa-3x"></i>
+				  <p>Информация о задолженности<br /><a href="#">Подробнее...</a></p>
+				</li>
+				<li>
+				  <i class="fa fa-cloud-upload fa-3x"></i>
+				  <p>Цены и тарифы<br /><a href="/prices.html">Подробнее...</a></p>
+				</li>
+				<li>
+				  <i class="fa fa-laptop fa-3x"></i>
+				  <p>Бланки договоров<br /><a href="/blanks.html">Подробнее...</a></p>
+				</li>
+				<li>
+				  <i class="fa fa-gears fa-3x"></i>
+				  <p>Возможность подключения<br /><a href="/podklucheniya.html">Подробнее...</a></p>
+				</li>
+				<li>
+				  <i class="fa fa-compass fa-3x"></i>
+				  <p>Положение о закупках<br /><a href="/polozhenie.html">Подробнее...</a></p>
+				</li>
+			</ul>
+			<div class="clearfix"></div>
+		  </div>
+		</div>
+	  </div>
+	  <div class="row">
+	    <!-- Welcome message
+			================= -->
+	    <div class="col-md-8">
+	    <div class="block-header">
+		  <h2>
+		    <span class="title">Добро пожаловать</span><span class="decoration"></span><span class="decoration"></span><span class="decoration"></span>
+		  </h2>
+		</div>
+		  <img src="/images/about.jpg" class="img-about img-responsive" alt="About">
+		  <p>
+		    Рады приветствовать Вас на сайте теплоснабжающей компании ООО "Нижновтеплоэнерго. 
+			<br /><br />
+		
+Основной сферой деятельности общества нашей организации являются производство и передача тепловой энергии. <br /><br />
+Потребителями тепловой энергии от источников теплоснабжения ООО «Нижновтеплоэнерго» являются более 560 жилых, социальных, административных объектов, а также объектов малого и среднего бизнеса, расположенных на территории Нижегородского района города Нижнего Новгорода.
+ 
+		  </p>
+		  <div class="info-board info-board-blue">
+			<h4>Важная информация</h4>
+			<p>На нашем сайте вы можете ознакомиться с информацией о задолженностях <a href="#">по ссылке</a>. </p>
+		  </div>
+		</div>
+		<!-- Last updated
+			================== -->
+		<div class="col-md-4">
+	    <div class="block-header">
+		  <h2>
+		    <span class="title">Последние новости</span><span class="decoration"></span><span class="decoration"></span><span class="decoration"></span>
+		  </h2>
+		</div>
+		<div class="tab-content">
+		  <div class="tab-pane active" id="blog">
+		  	<% Article.order("created_at DESC").limit(3).each do |article| %>
+				<div class="media">
+				  <a class="pull-left" href="<%= "/articles/#{article.id}" %>">
+					<%= image_tag article.image.url, :class => "media-object", :alt => article.name %>
+				  </a>
+				  <div class="media-body">
+					<h4 class="media-heading"><%= link_to article.name, article %></h4>
+					<%= truncate( raw( sanitize(article.text, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 200, :omission => "...") %>
+				  </div>
+				</div>
+			<% end %>
+			<%= link_to "Читать все новости...", "/blog.html", :class => "read-more" %>
+		  </div>
+		</div>
+		</div>
+	  </div>
+	  <!-- Recent Works
+		=================== -->
+	  <div class="row">
+	    <div class="col-md-12 block-header">
+		  <h2>
+		    <span class="title">Наши услуги</span><span class="decoration"></span><span class="decoration"></span><span class="decoration"></span>
+		  </h2>
+		</div>
+	  </div>
+	  <div class="row">
+	    <div class="col-md-3 col-sm-6">
+		  <div class="thumbnail">
+			<img src="/images/works1.jpg" class="img-responsive" alt="...">
+			<div class="visit"><a href="/contact.html"><i class="fa fa-question-circle"></i> Подробнее...</a></div>
+			<div class="caption">
+			  <h4>Жалобы</h4>
+				<div class="rating">
+				  <i class="fa fa-star"></i> 
+				  <i class="fa fa-star"></i> 
+				  <i class="fa fa-star"></i> 
+				  <i class="fa fa-star"></i> 
+				  <i class="fa fa-star"></i>
+				</div>
+			  <p>Сообщите нам о проблемах с теплоснабжением</p>
+			</div>
+		  </div>
+		</div>
+	    <div class="col-md-3 col-sm-6">
+		  <div class="thumbnail">
+			<img src="/images/works2.jpg" class="img-responsive" alt="...">
+			<div class="visit"><a href="#"><i class="fa fa-question-circle"></i> Подробнее...</a></div>
+			<div class="caption">
+			  <h4>Задолженность</h4>
+				<div class="rating">
+				  <i class="fa fa-star"></i> 
+				  <i class="fa fa-star"></i> 
+				  <i class="fa fa-star"></i> 
+				  <i class="fa fa-star"></i> 
+				</div>
+			  <p>Узнайте, есть ли у Вас задолженность за теплоснабжение</p>
+			</div>
+		  </div>
+		</div>
+		<div class="clearfix visible-sm"></div>
+	    <div class="col-md-3 col-sm-6">
+		  <div class="thumbnail">
+			<img src="/images/works3.jpg" class="img-responsive" alt="...">
+			<div class="visit"><a href="/blanks.html"><i class="fa fa-question-circle"></i> Подробнее...</a></div>
+			<div class="caption">
+			  <h4>Бланки договоров</h4>
+				<div class="rating">
+				  <i class="fa fa-star"></i> 
+				  <i class="fa fa-star"></i> 
+				  <i class="fa fa-star"></i> 
+				  <i class="fa fa-star"></i> 
+				  <i class="fa fa-star-half"></i>
+				</div>
+			  <p>Найдите образец договора или контракта</p>
+			</div>
+		  </div>
+		</div>
+	    <div class="col-md-3 col-sm-6">
+		  <div class="thumbnail">
+			<img src="/images/works4.jpg" class="img-responsive" alt="...">
+			<div class="visit"><a href="/plan.html"><i class="fa fa-question-circle"></i> Подробнее...</a></div>
+			<div class="caption">
+			  <h4>План закупок</h4>
+				<div class="rating">
+				  <i class="fa fa-star"></i> 
+				  <i class="fa fa-star"></i> 
+				  <i class="fa fa-star"></i> 
+				  <i class="fa fa-star"></i> 
+				  <i class="fa fa-star"></i>
+				</div>
+			  <p>Ознакомьтесь с планом закупок нашей компании</p>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>

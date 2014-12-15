@@ -41,13 +41,13 @@ namespace :csv do
 
     client = TinyTds::Client.new(:username => 'rs-user', :password => 'pQ128mJ', :dataserver => '89.189.1.174', :database => 'VzljotDispatcher1')
 
-sql = "SELECT TOP 100 [Equip].[ID], [Table_TSRV_026M_ADay].[Time], [Table_TSRV_026M_ADay].[t1], [Table_TSRV_026M_ADay].[t2], 
+sql = "SELECT TOP 10000 [Equip].[ID], [Table_TSRV_026M_ADay].[Time], [Table_TSRV_026M_ADay].[t1], [Table_TSRV_026M_ADay].[t2], 
 [Table_TSRV_026M_ADay].[t3], [Table_TSRV_026M_ADay].[t4], [Table_TSRV_026M_ADay].[M1], [Table_TSRV_026M_ADay].[M2], 
 [Table_TSRV_026M_ADay].[M3], [Table_TSRV_026M_ADay].[M4], [Table_TSRV_026M_ADay].[W1], [Table_TSRV_026M_ADay].[W2], 
 [Table_TSRV_026M_ADay].[W3], [Table_TSRV_026M_ADay].[W4] FROM [VzljotDispatcher1].[dbo].[UserNode], [VzljotDispatcher1].[dbo].[User], 
 [VzljotDispatcher1].[dbo].[Node], [VzljotDispatcher1].[dbo].[Equip], [VzljotDispatcher1].[dbo].[Table_TSRV_026M_ADay] WHERE [UserNode].
 [IDUser] = 8 AND [User].[ID] = 8 AND [Node].[Id] = [UserNode].[IDNode] AND [Equip].[IdNode] = [Node].[Id] AND [Equip].[ID] = 
-[Table_TSRV_026M_ADay].[IDEquip] AND [Table_TSRV_026M_ADay].[Time] >= '12.11.2014'"
+[Table_TSRV_026M_ADay].[IDEquip] AND [Table_TSRV_026M_ADay].[Time] >= CONVERT(CHAR(10), (GETDATE()-1), 101)"
 
 client.execute(sql).each do |row|
 

@@ -27,7 +27,7 @@
   end
 
   g.column  name: 'Дата размещения' do |apeal|
-    Russian::strftime(apeal.created_at, "%d %B %Y")
+    Russian::strftime(apeal.created_at, "%d %B %Y %H:%M")
   end
 
   g.column  name: 'Краткое содержание' do |apeal|

@@ -1,37 +1,43 @@
 <%= grid(@equip_houses) do |g|
 
   g.blank_slate  do
-    content_tag :div, "  <strong>РќРµС‚ РЅРё РѕРґРЅРѕРіРѕ РїСЂРёР±РѕСЂС‹ СѓС‡С‘С‚Р°.</strong>".html_safe, class: 'alert alert-warning'
+    content_tag :div, "  <strong>Нет ни одного приборы учёта.</strong>".html_safe, class: 'alert alert-warning'
   end
 
-  g.column name: 'РђРґСЂРµСЃ', attribute: 'street' do |equip_house|
-    "#{equip_house.street}, Рґ. #{equip_house.housenumber}"
+  g.column name: 'Адрес', attribute: 'street' do |equip_house|
+    link_to "#{equip_house.street}, д. #{equip_house.housenumber}", equip_house
   end
 
-  g.column name: 'Р¦РўРџ', attribute: 'ctp' do |equip_house|
+  g.column name: 'ЦТП', attribute: 'ctp' do |equip_house|
     equip_house.ctp
   end
 
-  g.column name: 'РћС‚РѕРїР»РµРЅРёРµ (t)', attribute: 't1', model: 'EquipValue' do |equip_house|
-    equip_house.equip_values.last.t1 if equip_house.equip_values.last.present?
+  g.column name: 'Дата съёма' do |equip_house|
+    if equip_house.equip_values.last.present?
+      Russian::strftime(equip_house.equip_values.last.date, "%d.%m.%y") if equip_house.equip_values.last.date.to_date == Date.yesterday
+    end
   end
 
-  g.column name: 'Р“РљР°Р»' do |equip_house|
-    (equip_house.equip_values.last.w1 - equip_house.equip_values.last.w2).round(3) if equip_house.equip_values.last.present?
+  g.column name: 'Отопление (t)', attribute: 't1', model: 'EquipValue' do |equip_house|
+if equip_house.equip_values.last.present?
+    equip_house.equip_values.last.t1 if equip_house.equip_values.last.date.to_date == Date.yesterday
+end
   end
 
-  g.column name: 'Р“Р’РЎ (t)', attribute: 't3', model: 'EquipValue' do |equip_house|
-    temperature(equip_house.equip_values.last.t3) if equip_house.equip_values.last.present?
+  g.column name: 'ГКал' do |equip_house|
+if equip_house.equip_values.last.present?
+    (equip_house.equip_values.last.w1 - equip_house.equip_values.last.w2).round(3) if equip_house.equip_values.last.date.to_date == Date.yesterday
+end
   end
 
+  g.column name: 'ГВС (t)', attribute: 't3', model: 'EquipValue' do |equip_house|
+if equip_house.equip_values.last.present?
+    temperature(equip_house.equip_values.last.t3) if equip_house.equip_values.last.date.to_date == Date.yesterday
+end
+  end
 
-
-  g.column  name: 'РџРѕРґСЂРѕР±РЅРѕСЃС‚Рё'.html_safe, in_csv: false do |equip_house|
-    link_to "РџРѕРґСЂРѕР±РЅРµРµ", equip_house
-  end  
-
-  g.column  name: 'РР·РјРµРЅРёС‚СЊ'.html_safe, in_csv: false do |equip_house|
-    link_to('РР·РјРµРЅРёС‚СЊ', edit_equip_house_path(equip_house))
+  g.column  name: 'Изменить'.html_safe, in_csv: false do |equip_house|
+    link_to('Изменить', edit_equip_house_path(equip_house))
   end  
 
 end -%>

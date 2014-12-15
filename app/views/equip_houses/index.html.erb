@@ -14,6 +14,9 @@
         <%= render "/users/profile_menu" %>
         <div class="col-sm-8 col-md-9">
           <h1 class="hl text-center top-zero">Приборы учёта домов</h1>
+<br>
+<strong>Дата съёма: </strong><%= Russian::strftime(Date.yesterday, "%d.%m.%y") %>
+<br><br>
 
 <%= grid(@equip_houses) do |g|
 
@@ -22,34 +25,42 @@
   end
 
   g.column name: 'Адрес', attribute: 'street' do |equip_house|
-    "#{equip_house.street}, д. #{equip_house.housenumber}"
+    link_to "#{equip_house.street}, д. #{equip_house.housenumber}", equip_house
   end
 
   g.column name: 'ЦТП', attribute: 'ctp' do |equip_house|
     equip_house.ctp
   end
 
-  g.column name: 'Отопление (t)', attribute: 't1', model: 'EquipValue' do |equip_house|
-    equip_house.equip_values.last.t1 if equip_house.equip_values.last.present?
+  g.column name: 'Дата съёма' do |equip_house|
+    if equip_house.equip_values.last.present?
+      Russian::strftime(equip_house.equip_values.last.date, "%d.%m.%y") if equip_house.equip_values.last.date.to_date == Date.yesterday
+    end
   end
 
-  g.column name: 'ГКал' do |equip_house|
-    (equip_house.equip_values.last.w1 - equip_house.equip_values.last.w2).round(3) if equip_house.equip_values.last.present?
+  g.column name: 'Отопление<br>(подача)'.html_safe, attribute: 't1', model: 'EquipValue' do |equip_house|
+if equip_house.equip_values.last.present?
+    equip_house.equip_values.last.t1 if equip_house.equip_values.last.date.to_date == Date.yesterday
+end
   end
 
-  g.column name: 'ГВС (t)', attribute: 't3', model: 'EquipValue' do |equip_house|
-    temperature(equip_house.equip_values.last.t3) if equip_house.equip_values.last.present?
+  g.column name: 'Отопление<br>(обратка)'.html_safe, attribute: 't2', model: 'EquipValue' do |equip_house|
+if equip_house.equip_values.last.present?
+    equip_house.equip_values.last.t2 if equip_house.equip_values.last.date.to_date == Date.yesterday
+end
   end
 
+  g.column name: 'ГВС<br>(подача)'.html_safe, attribute: 't3', model: 'EquipValue' do |equip_house|
+if equip_house.equip_values.last.present?
+    temperature(equip_house.equip_values.last.t3) if equip_house.equip_values.last.date.to_date == Date.yesterday
+end
+  end
 
-
-  g.column  name: 'Подробности'.html_safe do |equip_house|
-    link_to "Подробнее", equip_house
-  end  
-
-  g.column  name: 'Изменить'.html_safe do |equip_house|
-    link_to('Изменить', edit_equip_house_path(equip_house))
-  end  
+  g.column name: 'ГВС<br>(обратка)'.html_safe, attribute: 't4', model: 'EquipValue' do |equip_house|
+if equip_house.equip_values.last.present?
+    equip_house.equip_values.last.t4 if equip_house.equip_values.last.date.to_date == Date.yesterday
+end
+  end
 
 end -%>
 

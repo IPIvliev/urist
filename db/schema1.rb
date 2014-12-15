@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141213113323) do
+ActiveRecord::Schema.define(:version => 20141210094138) do
 
   create_table "apeals", :force => true do |t|
     t.string   "who"
@@ -44,36 +44,6 @@ ActiveRecord::Schema.define(:version => 20141213113323) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "equip_houses", :force => true do |t|
-    t.string   "name"
-    t.string   "equipname"
-    t.integer  "idequip"
-    t.string   "street"
-    t.string   "housenumber"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "ctp"
-  end
-
-  create_table "equip_values", :force => true do |t|
-    t.integer  "equip_id"
-    t.float    "t1",         :default => 0.0
-    t.float    "t2",         :default => 0.0
-    t.float    "t3",         :default => 0.0
-    t.float    "t4",         :default => 0.0
-    t.float    "w1",         :default => 0.0
-    t.float    "w2",         :default => 0.0
-    t.float    "w3",         :default => 0.0
-    t.float    "w4",         :default => 0.0
-    t.float    "m1",         :default => 0.0
-    t.float    "m2",         :default => 0.0
-    t.float    "m3",         :default => 0.0
-    t.float    "m4",         :default => 0.0
-    t.datetime "date"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
-  end
-
   create_table "pages", :force => true do |t|
     t.string   "name"
     t.text     "text"
@@ -89,7 +59,7 @@ ActiveRecord::Schema.define(:version => 20141213113323) do
     t.integer  "item"
     t.string   "table"
     t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 8
+    t.integer  "year",       :limit => 5
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
   end

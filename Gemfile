@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'kaminari'
 gem "wice_grid", '3.4.2'
+gem 'yaml_db'
 
 
 # Bundle edge Rails instead:
@@ -17,6 +18,7 @@ gem 'russian'
 gem 'thin'
 gem 'eventmachine'
 gem "the_string_to_slug", "~> 1.2"
+gem 'whenever'
 
 # Users
 gem 'devise'
@@ -27,6 +29,10 @@ gem 'rails_admin'
 # Images
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
+
+group :production do
+  gem 'mysql2'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.

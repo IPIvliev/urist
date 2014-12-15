@@ -22,8 +22,6 @@ GEM
       activesupport (= 3.2.13)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
-    activerecord-sqlserver-adapter (3.2.12)
-      activerecord (~> 3.2.0)
     activeresource (3.2.13)
       activemodel (= 3.2.13)
       activesupport (= 3.2.13)
@@ -40,7 +38,6 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
-    chronic (0.10.2)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -82,7 +79,6 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.6.1)
     multi_json (1.10.1)
-    mysql2 (0.3.16)
     nested_form (0.3.2)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
@@ -160,7 +156,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    tiny_tds (0.6.2)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -170,24 +165,19 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
-    whenever (0.9.4)
-      chronic (>= 0.6.3)
     wice_grid (3.4.2)
       kaminari (>= 0.13.0)
-    yaml_db (0.2.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-sqlserver-adapter
   carrierwave
   coffee-rails (~> 3.2.2)
   devise
   eventmachine
   jquery-rails (~> 2.3.0)
   kaminari
-  mysql2
   rails (= 3.2.13)
   rails_admin
   rmagick
@@ -196,8 +186,5 @@ DEPENDENCIES
   sqlite3
   the_string_to_slug (~> 1.2)
   thin
-  tiny_tds
   uglifier (>= 1.0.3)
-  whenever
   wice_grid (= 3.4.2)
-  yaml_db
