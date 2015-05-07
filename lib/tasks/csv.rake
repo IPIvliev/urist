@@ -47,7 +47,7 @@ sql = "SELECT TOP 10000 [Equip].[ID], [Table_TSRV_026M_ADay].[Time], [Table_TSRV
 [Table_TSRV_026M_ADay].[W3], [Table_TSRV_026M_ADay].[W4] FROM [VzljotDispatcher1].[dbo].[UserNode], [VzljotDispatcher1].[dbo].[User], 
 [VzljotDispatcher1].[dbo].[Node], [VzljotDispatcher1].[dbo].[Equip], [VzljotDispatcher1].[dbo].[Table_TSRV_026M_ADay] WHERE [UserNode].
 [IDUser] = 8 AND [User].[ID] = 8 AND [Node].[Id] = [UserNode].[IDNode] AND [Equip].[IdNode] = [Node].[Id] AND [Equip].[ID] = 
-[Table_TSRV_026M_ADay].[IDEquip] AND [Table_TSRV_026M_ADay].[Time] >= CONVERT(CHAR(10), (GETDATE()-1), 101)"
+[Table_TSRV_026M_ADay].[IDEquip] AND [Table_TSRV_026M_ADay].[Time] >= '10.01.2014'"
 
 client.execute(sql).each do |row|
 
