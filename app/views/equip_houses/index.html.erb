@@ -18,6 +18,8 @@
 <strong>Дата съёма: </strong><%= Russian::strftime(Date.yesterday, "%d.%m.%y") %>
 <br><br>
 
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
 <%= grid(@equip_houses) do |g|
 
   g.blank_slate  do

@@ -17,6 +17,7 @@
           <!-- Blog Post -->
           <h4><%= "#{@equip_house.street}, дом #{@equip_house.housenumber}" %></h4>
           <hr>
+<<<<<<< HEAD
           <h4>График расхода сетевой воды (отопление, т)</h4>
           <p class="blog-text">
 
@@ -87,3 +88,34 @@
   </div>
 
 
+=======
+          <h4>График расхода сетевой воды</h4>
+          <p class="blog-text">
+            <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+            <%= area_chart EquipValue.where(:equip_id => @equip_house.idequip).group(:date).maximum(:m1) %>
+          </p>
+
+          <strong><%= link_to "Все дома", :back %></strong>
+        </div>
+        <div class="col-sm-4">
+          <!-- Social Links -->
+          <h3 class="hl">Данные дома</h3>
+          <hr>
+          <div class="">
+            <strong>ЦТП:</strong> <%= @equip_house.ctp %><br>
+            <strong>Адрес:</strong> <%= "#{@equip_house.street}, дом #{@equip_house.housenumber}" %>
+            <strong>Последние данные:</strong> <%= Russian::strftime(@equip_house.equip_values.last.date, "%d.%m.%y") if @equip_house.equip_values.last.present? %>
+            <br><br>
+            <% if current_user.role == "apeals_manager" || current_user.role == "director" || current_user.role == "admin" %>
+              <%= link_to 'Изменить', edit_equip_house_path(@equip_house), :class => "btn btn-red" %>
+            <% end %>
+            <div class="clearfix"></div>
+          </div>
+       
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+>>>>>>> 697af832b8edcf1c470d81ea44b4b30118e79e1d
