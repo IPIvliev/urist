@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
+gem 'mysql2'
 gem 'kaminari'
 gem "wice_grid", '3.4.2'
 gem 'yaml_db'
@@ -9,7 +10,6 @@ gem 'yaml_db'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'activerecord-sqlserver-adapter'
 gem 'tiny_tds'
 
@@ -33,10 +33,6 @@ gem 'groupdate'
 # Images
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
-
-group :production do
-  gem 'mysql2'
-end
 
 #Update to rails 4
  gem 'protected_attributes'
