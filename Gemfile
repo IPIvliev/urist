@@ -34,6 +34,9 @@ gem 'groupdate'
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
 
+# Articles
+gem 'ckeditor'
+
 #Update to rails 4
  gem 'protected_attributes'
  

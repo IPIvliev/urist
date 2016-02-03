@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
+//= require ckeditor/init
+//= require jquery.turbolinks
 //= require wice_grid
 //= require_tree .
