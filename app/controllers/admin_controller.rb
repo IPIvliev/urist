@@ -46,6 +46,17 @@ class AdminController < ApplicationController
 		render :template => "/admin/pages"
 	end
 
+	def trud
+		@title = "Результаты спецоценки условий труда"
+
+		@pages = initialize_grid(Page, :conditions => ['category_id = ?', 7],
+                  order: 'created_at',
+                  order_direction: 'desc',
+                  per_page: 20)
+
+		render :template => "/admin/pages"
+	end
+
 	def polozhenie
 		@title = "Положение о закупках"
 

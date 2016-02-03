@@ -24,6 +24,7 @@ Urist::Application.routes.draw do
   match '/blanks.html', to: 'admin#blanks'
   match '/polozhenie.html', to: 'admin#polozhenie'
   match '/plan.html', to: 'admin#plan'
+  match '/trud.html', to: 'admin#trud'
   match '/today.html', to: 'admin#today' 
   match '/arhive.html', to: 'admin#arhive'
   match '/dogovora.html', to: 'admin#dogovora'

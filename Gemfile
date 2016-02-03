@@ -26,6 +26,10 @@ gem 'devise'
 # Admin panel
 gem 'rails_admin'
 
+# Graphics
+gem "chartkick"
+gem 'groupdate'
+
 # Images
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'

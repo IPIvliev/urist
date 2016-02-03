@@ -56,12 +56,6 @@ if equip_house.equip_values.last.present?
 end
   end
 
-  g.column name: 'ГВС<br>(обратка)'.html_safe, attribute: 't4', model: 'EquipValue' do |equip_house|
-if equip_house.equip_values.last.present?
-    equip_house.equip_values.last.t4 if equip_house.equip_values.last.date.to_date == Date.yesterday
-end
-  end
-
 end -%>
 
       <div class="row">
