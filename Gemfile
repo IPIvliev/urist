@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.18'
 gem 'kaminari'
 gem "wice_grid", '3.4.2'
 gem 'yaml_db'
