@@ -1,58 +1,45 @@
 Urist::Application.routes.draw do
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
+  resources :equip_houses
 
-  # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
 
-  # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
-  # This route can be invoked with purchase_url(:id => product.id)
+  get "counters/index"
 
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  get "counters/show"
 
-  # Sample resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+  resources :articles
 
-  # Sample resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
 
-  # Sample resource route with more complex sub-resources
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', :on => :collection
-  #     end
-  #   end
+  mount RailsAdmin::Engine => '/kro', :as => 'rails_admin'
 
-  # Sample resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+# Жалобы
+  resources :apeals
+  get '/old/apeals/', to: 'apeals#old_apeals', as: :old_apeals
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+# Динамические страницы
+  get '/prices.html', to: 'admin#prices'
+  get '/podklucheniya.html', to: 'admin#podklucheniya'
+  get '/teplo.html', to: 'admin#teplo'
+  get '/gvs.html', to: 'admin#gvs'
+  get '/blanks.html', to: 'admin#blanks'
+  get '/polozhenie.html', to: 'admin#polozhenie'
+  get '/plan.html', to: 'admin#plan'
+  get '/today.html', to: 'admin#today' 
+  get '/arhive.html', to: 'admin#arhive'
+  get '/dogovora.html', to: 'admin#dogovora'
 
-  # See how all your routes lay out with "rake routes"
+  get "users/profile"
 
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+  devise_for :users
+  resources :users
+
+# Страницы главного меню
+  get "/index.html", to: "static_pages#index"
+  get "/contact.html", to: "static_pages#contact"
+  get "/services.html", to: "static_pages#services"
+  get "/blog.html", to: "articles#index"
+  get "/about.html", to: "static_pages#about"
+  get "/prices.html", to: "static_pages#prices"
+
+ # Главная страница
+  root :to => 'static_pages#index'
 end
