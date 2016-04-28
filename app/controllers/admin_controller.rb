@@ -57,6 +57,17 @@ class AdminController < ApplicationController
 		render :template => "/admin/pages"
 	end
 
+	def buhuchet
+		@title = "Бухгалтерская отчётность"
+
+		@pages = initialize_grid(Page, :conditions => ['category_id = ?', 8],
+                  order: 'created_at',
+                  order_direction: 'desc',
+                  per_page: 20)
+
+		render :template => "/admin/pages"
+	end
+
 	def polozhenie
 		@title = "Положение о закупках"
 

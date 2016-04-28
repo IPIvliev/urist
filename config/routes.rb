@@ -26,6 +26,8 @@ Urist::Application.routes.draw do
   get '/today.html', to: 'admin#today' 
   get '/arhive.html', to: 'admin#arhive'
   get '/dogovora.html', to: 'admin#dogovora'
+  get '/trud.html', to: 'admin#trud'
+  get '/buhuchet.html', to: 'admin#buhuchet' 
 
   get "users/profile"
 
