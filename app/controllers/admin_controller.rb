@@ -6,7 +6,7 @@ class AdminController < ApplicationController
 		@title = "Цены и тарифы"
 
 		@pages = initialize_grid(Page, :conditions => ['category_id = ?', 1],
-                  order: 'name',
+                  order: 'created_at',
                   order_direction: 'desc',
                   per_page: 20)
 
@@ -17,7 +17,7 @@ class AdminController < ApplicationController
 		@title = "Регулируемая деятельность в сфере теплоснабжения"
 
 		@pages = initialize_grid(Page, :conditions => ['category_id = ?', 2],
-                  order: 'name',
+                  order: 'created_at',
                   order_direction: 'desc',
                   per_page: 20)
 
@@ -28,7 +28,7 @@ class AdminController < ApplicationController
 		@title = "Регулируемая деятельность в сфере горячего водоснабжения"
 
 		@pages = initialize_grid(Page, :conditions => ['category_id = ?', 3],
-                  order: 'name',
+                  order: 'created_at',
                   order_direction: 'desc',
                   per_page: 20)
 
@@ -105,7 +105,7 @@ class AdminController < ApplicationController
 		@title = "Возможности подключения"
 
 		@pages = initialize_grid(Page, :conditions => ['category_id = ?', 5],
-                  order: 'name',
+                  order: 'created_at',
                   order_direction: 'desc',
                   per_page: 20)
 
